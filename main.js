@@ -41,17 +41,20 @@ mahasiswa1.perkenalkan();
 // Gunakan setter untuk mengubah nama menjadi "Laptop Gaming" dan tampilkan hasil menggunakan getter.
 
 class Produk {
-  constructor(nama, harga) {
-    this.nama = nama;
-    this.harga = harga;
+    #nama = null;
+    #harga = null;
+    
+  constructor(nama, harga= 0) {
+    this.#nama = nama;
+    this.#harga = harga;
   }
   get info() {
-    return `Produk: ${this.nama} - Harga: Rp${this.harga}`;
+    return `Produk: ${this.#nama} - Harga: Rp${this.#harga}`;
   }
   set namaProduk(nama) {
-    this.nama = nama;
+    this.#nama = nama;
   }
 }
-const produk1 = new Produk("Laptop", 10000000);
-produk1.namaProduk = "Laptop Gaming";
+const produk1 = new Produk("Laptop");
+produk1.namaProduk = "Laptop kantor";
 console.log(produk1.info);
